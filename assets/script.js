@@ -29,18 +29,38 @@ startBtn.addEventListener("click", function(){
 // timer subtracts time when wrong answer is pressed
 //when the timer reaches 0 the game is over
 
-//defines my timer 
+//creates my timer 
 var timer = document.getElementById("timer")
-var timerCount = 5
-
+var timerCount = 10
 
 //puts the the timer on the screen  
 function startTimer(){
-//puts the timer on the page and will count down when math given
-timer.textContent = "Time Left: " + timerCount + " minutes remaining"
-timerCount--;
-
+timer.textContent = "Time Left: " + timerCount + " seconds remaining."
 }
+
+
+//questions
+//presented with question and multiple choice answers
+//when you answer a question you are presented with new answer
+//when you answer a question it will tell you if you got it right or wrong
+//when all the questions are answered the game is over
+//create an object array with questions and answers
+
+//quizquestions 
+var questions = [
+    { q: "what is not an example of a string?",
+       questionChoices: ["hi", "0", "true", "string"],
+        correct: "hi"},
+    { q: "alert() will create a popup box on the screen",
+        questionChoices: ["true", "false"],
+        correct: "t"},
+    { q: "Which JavaScript Values are true",
+        questionChoices: ["false", "===", "0", "null"],
+    correct: "==="},
+  ]
+
+
+
 
 
 
@@ -51,12 +71,6 @@ timerCount--;
 //
 
 
-//questions
-//presented with question and multiple choice answers
-//when you answer a question you are presented with new answer
-//when you answer a question it will tell you if you got it right or wrong
-//when all the questions are answered the game is over
-//create an object array with questions and answers
 
 
 
