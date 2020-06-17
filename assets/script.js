@@ -33,9 +33,15 @@ startBtn.addEventListener("click", function(){
 var timer = document.getElementById("timer")
 var timerCount = 10
 
-//puts the the timer on the screen  
+//puts the the timer on the screen and makes it run  
+// needs to make it stop! 
 function startTimer(){
 timer.textContent = "Time Left: " + timerCount + " seconds remaining."
+setInterval(function(){
+    timerCount--; 
+    timer.textContent = "Time Left: " + timerCount + " seconds remaining."
+   //if else statement to stop timer if answers question or get to 0
+},1000)
 }
 
 
@@ -47,22 +53,28 @@ timer.textContent = "Time Left: " + timerCount + " seconds remaining."
 //create an object array with questions and answers
 
 //quizquestions 
-var questions = [
+var quizQuestions = [
     { q: "what is not an example of a string?",
        questionChoices: ["hi", "0", "true", "string"],
         correct: "hi"},
-    { q: "alert() will create a popup box on the screen",
-        questionChoices: ["true", "false"],
-        correct: "t"},
+    { q: "An alert() has a similar format as to which of the following?",
+        questionChoices: ["array", "object", "property", "confirm"],
+        correct: "confirm"},
     { q: "Which JavaScript Values are true",
         questionChoices: ["false", "===", "0", "null"],
     correct: "==="},
   ]
 
 
+var questions = document.getElementById("questions")
 
 
 
+function displayQuestions() {
+   questions.textContent = quizQuestions[0].q
+   
+}
+displayQuestions()
 
 // 3 steps for making an element on HTML by JS
 //make the element  .createElementbyid  example var name = document.createElement("tag");
