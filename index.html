@@ -4,20 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JS quiz</title>
-    <link rel="stylesheet" href="style.css" />
+    
+    <link rel="stylesheet" type="text/css" href="assets\style.css">
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
       integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
       crossorigin="anonymous"
     />
+    
+    
   </head>
   <body>
     <header class="jumbotron" style="background-color: plum;">
+      
       <h1 class="display-4 d-flex justify-content-center">
         JavaScript Coding Quiz Challenge
       </h1>
-      <div>
+    <div id="timer"></div>
+      <div id="headerDiv">
         <p class="lead">Directions of the game:</p>
         <hr class="my-4" />
         <ol>
@@ -43,10 +48,11 @@
             your highScore.
           </li>
         </ol>
-        <a class="btn btn-primary btn-md" href="#" role="button">Start Game</a>
+      
+        <button class="btn-primary startBtn">Start Game</button>
       </div>
     </header>
-
+    <script src="assets\script.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
