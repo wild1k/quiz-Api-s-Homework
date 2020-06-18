@@ -49,24 +49,24 @@
         <button class="btn-primary startBtn">Start Game</button>
       
     </header>
-    <div class="card w-100 d-flex justify-content-right">
+    <div id="hideQuiz">
+    <div class="card w-100 d-flex justify-content-right" >
       <div class="card-body">
-        
         <h5 class="card-title d-flex justify-content-center row" id="questions">
-          
         </h5>
 
-        <div class="row">
-          <div class="card-body col-md-4">
-            <button class="btn-primary col-md-2 aOne">Button</button>
-            <button class="btn-primary col-md-2 aTwo">Button</button>
-            <button class="btn-primary col-md-2 aThree">Button</button>
-            <button class="btn-primary col-md-2 aFour">Button</button>
+        <div class="row" id="displayBtnDiv">
+          <div class="card-body col-md-4" >
+            <button class="btn-primary col-md-2" id="aOne"></button>
+            <button class="btn-primary col-md-2" id="aTwo">Button</button>
+            <button class="btn-primary col-md-2" id="aThree">Button</button>
+            <button class="btn-primary col-md-2" id="aFour">Button</button>
+            <span class="row" id="rightAnswer"></span>
           </div>
         </div>
       </div>
     </div>
-
+</div>
     <script src="assets\script.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
