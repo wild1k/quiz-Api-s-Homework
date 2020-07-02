@@ -19,6 +19,7 @@
         JavaScript Coding Quiz Challenge
       </h1>
       <div id="timer"></div>
+      <div id="score"></div>
       <div id="headerDiv">
         <p class="lead">Directions of the game:</p>
         <hr class="my-4" />
@@ -52,16 +53,17 @@
     <div id="hideQuiz">
     <div class="card w-100 d-flex justify-content-right" >
       <div class="card-body">
-        <h5 class="card-title d-flex justify-content-center row" id="questions">
+        <h5 class="card-title d-flex justify-content-center row" id="questionDisplay">
         </h5>
 
         <div class="row" id="displayBtnDiv">
           <div class="card-body col-md-4" >
-            <button class="btn-primary col-md-2" id="aOne"></button>
-            <button class="btn-primary col-md-2" id="aTwo">Button</button>
-            <button class="btn-primary col-md-2" id="aThree">Button</button>
-            <button class="btn-primary col-md-2" id="aFour">Button</button>
-            <span class="row" id="rightAnswer"></span>
+            <span class="row" id="rightAnswer">
+            <button class="btn-primary col-md-2 checkAnswer" id="aOne"></button>
+            <button class="btn-primary col-md-2 checkAnswer" id="aTwo"></button>
+            <button class="btn-primary col-md-2 checkAnswer" id="aThree"></button>
+            <button class="btn-primary col-md-2 checkAnswer" id="aFour"></button>
+            </span>
           </div>
         </div>
       </div>
