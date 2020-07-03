@@ -18,36 +18,29 @@ var quizQuestions = [
     q: "Which is an editor?",
     questionChoices: ["newsMan", "scissors", "VS Code", "none of these"],
     correct: "VS Code",
-  }
+  },
 ];
 // $(document).ready(function(){
-  //will write the answer after an option is picked
-var answer = document.getElementById("rightAnswer")
+//will write the answer after an option is picked
+var answer = document.getElementById("rightAnswer");
 //appends the answers to the buttons on the card
 var aOne = document.getElementById("aOne");
 var aTwo = document.getElementById("aTwo");
 var aThree = document.getElementById("aThree");
 var aFour = document.getElementById("aFour");
-  //shortens code to keep functions and forloops clean when cycling through Q and A
+//shortens code to keep functions and forloops clean when cycling through Q and A
 var qAndA1 = (aOne.textContent = quizQuestions[0].questionChoices[0]);
 var qAndA2 = (aTwo.textContent = quizQuestions[0].questionChoices[1]);
 var qAndA3 = (aThree.textContent = quizQuestions[0].questionChoices[2]);
 var qAndA4 = (aFour.textContent = quizQuestions[0].questionChoices[3]);
-var checkAnswer = document.getElementsByClassName("checkAnswer")
-console.log(qAndA1)
+var checkAnswer = document.getElementsByClassName("checkAnswer");
+console.log(qAndA1);
 
+function displayQuestions() {
+  document.getElementById("questionDisplay").innerHTML = quizQuestions[0].q;
+}
 
-
-
- 
-  function displayQuestions(){
-
-   document.getElementById("questionDisplay").innerHTML = quizQuestions[0].q;
-
-  }
-    
-
-  //creates my timer
+//creates my timer
 var timer = document.getElementById("timer");
 var timerCount = 10;
 
@@ -56,7 +49,6 @@ var timerCount = 10;
 function startTimer() {
   timer.textContent = "Time Left: " + timerCount + " seconds remaining.";
   setInterval(function () {
-    
     timer.textContent = "Time Left: " + timerCount + " seconds remaining.";
     if (timerCount !== 0) {
       timerCount--;
@@ -64,78 +56,68 @@ function startTimer() {
     //  else {
     //   alert("Time is up!")
     // }
-    
   }, 1000);
 }
 
-  //   for (let i = 0; i < quizQuestions.q.length; i++) {
-      
-      
-    
-  //     button(aOne);
-  // //     button(aTwo);
-  // //     button(aThree);
-  // //     button4();
-    
-  // //   }
-    
-    
-  
-  // // }
+//   for (let i = 0; i < quizQuestions.q.length; i++) {
 
-  // function button(){
-     
-  //      aOne.innerHTML = quizQuestions[0].questionChoices[0]
-  //      aOne.innerHTML = quizQuestions[1].questionChoices[0]
-  //      aOne.innerHTML = quizQuestions[2].questionChoices[0]
-  //      aOne.innerHTML = quizQuestions[3].questionChoices[0]
+//     button(aOne);
+// //     button(aTwo);
+// //     button(aThree);
+// //     button4();
 
-  //   };
-    
-  // button()
+// //   }
 
+// // }
 
-  // function button1(){
-     
-  //      aTwo.innerHTML = quizQuestions[0].questionChoices[1]
-  //      aTwo.innerHTML = quizQuestions[1].questionChoices[1]
-  //      aTwo.innerHTML = quizQuestions[2].questionChoices[1]
-  //      aTwo.innerHTML = quizQuestions[3].questionChoices[1]
-
-  //   };
-    
-  
-  // button1()
-
-  // function button2(){
-     
-  //      aThree.innerHTML = quizQuestions[0].questionChoices[2]
-  //      aThree.innerHTML = quizQuestions[1].questionChoices[2]
-  //      aThree.innerHTML = quizQuestions[2].questionChoices[2]
-  //      aThree.innerHTML = quizQuestions[3].questionChoices[2]
-
-  //   };
-    
-  
-  // button2()
-
-  // function button3(){
-     
-  //      aFour.innerHTML = quizQuestions[0].questionChoices[3]
-  //      aFour.innerHTML = quizQuestions[1].questionChoices[3]
-  //      aFour.innerHTML = quizQuestions[2].questionChoices[3]
-  //      aFour.innerHTML = quizQuestions[3].questionChoices[3]
-
-  //   };
-    
-
-  // button3()
+// $(document).ready(function(){
 
 
 
+// function button(){
 
+//      aOne.innerHTML = quizQuestions[0].questionChoices[0]
+//      aOne.innerHTML = quizQuestions[1].questionChoices[0]
+//      aOne.innerHTML = quizQuestions[2].questionChoices[0]
+//      aOne.innerHTML = quizQuestions[3].questionChoices[0]
 
+//   };
 
+// button()
+
+// function button1(){
+
+//      aTwo.innerHTML = quizQuestions[0].questionChoices[1]
+//      aTwo.innerHTML = quizQuestions[1].questionChoices[1]
+//      aTwo.innerHTML = quizQuestions[2].questionChoices[1]
+//      aTwo.innerHTML = quizQuestions[3].questionChoices[1]
+
+//   };
+
+// button1()
+
+// function button2(){
+
+//      aThree.innerHTML = quizQuestions[0].questionChoices[2]
+//      aThree.innerHTML = quizQuestions[1].questionChoices[2]
+//      aThree.innerHTML = quizQuestions[2].questionChoices[2]
+//      aThree.innerHTML = quizQuestions[3].questionChoices[2]
+
+//   };
+
+// button2()
+
+// function button3(){
+
+//      aFour.innerHTML = quizQuestions[0].questionChoices[3]
+//      aFour.innerHTML = quizQuestions[1].questionChoices[3]
+//      aFour.innerHTML = quizQuestions[2].questionChoices[3]
+//      aFour.innerHTML = quizQuestions[3].questionChoices[3]
+
+//   };
+
+// button3()
+// })
 // function displayAnswers() {
 //   qAndA1 += i++;
 //   qAndA2 += i++
@@ -145,14 +127,9 @@ function startTimer() {
 // }
 // console.log(qAndA2)
 
-
-
-
-
 //function definition
 function hideHeader() {
   head.style.display = "none";
-  
 }
 //var to define my hideheader function
 var head = document.getElementById("headerDiv");
@@ -170,11 +147,10 @@ startBtn.addEventListener("click", function () {
 });
 
 //var declared to make quiz hidden until start button
-var hide = document.getElementById("hideQuiz")
+var hide = document.getElementById("hideQuiz");
 function hideQuizCard() {
-    hide.style.display = "block"
+  hide.style.display = "block";
 }
-
 
 // //ties the btns into a div to be displayed onclick of startbutton
 // var displayBtnDiv = document.getElementById("displayBtnDiv")
@@ -185,8 +161,6 @@ function hideQuizCard() {
 
 // }
 
-
-
 //another example of how to do an add.even listener
 // startBtn.addEventListener("click", hideHeader)
 
@@ -195,7 +169,6 @@ function hideQuizCard() {
 //timer counts down while taking quiz
 // timer subtracts time when wrong answer is pressed
 //when the timer reaches 0 the game is over
-
 
 //questions
 //presented with question and multiple choice answers
@@ -206,86 +179,78 @@ function hideQuizCard() {
 
 //quizquestions
 
-
-
-
-
-
-
-
-
 // //var to keep score
 // console.log(qAndA1);
 
-
 // function displayQuestions() {
-  
-// questions.innerHTML.quizQuestions
 
+// questions.innerHTML.quizQuestions
 
 // }
 
 // displayQuestions()
-
-
-
-
-
-
-
-
+// if (aOne === )
 
 //appends the questions to the card header
 
-
-// function checkAnswer () {
-
+var score = 0;
 
 
-//   var score = 0;
-//  if (checkAnswer !== quizQuestions[0].correct || checkAnswer !== quizQuestions[1].correct || checkAnswer !== quizQuestions[2].correct || checkAnswer !== quizQuestions[3].correct ) {
-   
-//    rightAnswer.textContent = "Incorrect";
+ $("#btnDiv").on("click", 'button', checkAnswer) 
 
-//  } else {
- 
-//       score++;
-//     answer.textContent = "Correct!";
-//     timer++;
-//  }
+function checkAnswer() {
   
 
-   
+ 
+  //  var button = $("#aOne").val();
 
+  //   if (btnValue === quizQuestions[0].correct  ||
+  //     btnValue === quizQuestions[1].correct  ||
+  //     btnValue === quizQuestions[2].correct  ||
+  //     btnValue == quizQuestions[3].correct ) {
+  //     answer.textContent = "Incorrect";
+  //   } else {
+      
+  //     answer.textContent = "Correct!";
+      
+  //   }
+  // console.log(aOne);
+  console.log("it working")
+  }
 
   
-    
-    
-//     };
- 
-//  checkAnswer();
+
+
+
+// $("#btnDiv").on("click", button, function(event){
+  
+  
+//   if ($("aOne")=== "click" && )
+// })
+
+
+// if a button gets clicked in the button div  then i want to compare the value of the button to the correct answer
+
+
 
 
 // displayQuestions()
 
-
-
 //for loop to go through questions and change score and notify correct answer
 
-    // if (answer === quizQuestions[i].correct){
-    //     score++;
-    //     rightAnswer.textContent = "Correct!"
-    // }
+// if (answer === quizQuestions[i].correct){
+//     score++;
+//     rightAnswer.textContent = "Correct!"
+// }
 
-  
 // aOne.addEventListener("click", function() {
 //     if (aOne === correct) {
 //         score++;
-//         
-        
+//
+
 //     } else {
 //         timer--;
-//         
+//
 //     }
 // })
 // }
@@ -293,7 +258,7 @@ function hideQuizCard() {
 //     if (aOne === qAndA1) {
 //         score++;
 //         answer.textContent = "Correct!"
-        
+
 //     } else {
 //         timer--;
 //         answer.textContent = "Incorrect"
@@ -304,7 +269,7 @@ function hideQuizCard() {
 //     if (aOne === qAndA1) {
 //         score++;
 //         answer.textContent = "Correct!"
-        
+
 //     } else {
 //         timer--;
 //         answer.textContent = "Incorrect"
@@ -314,7 +279,7 @@ function hideQuizCard() {
 //     if (aOne === qAndA1) {
 //         score++;
 //         answer.textContent = "Correct!"
-        
+
 //     } else {
 //         timer--;
 //         answer.textContent = "Incorrect"
@@ -323,14 +288,12 @@ function hideQuizCard() {
 
 // document.addEventListener("click", function(event) {
 //   console.log(event.target.textContent);
-  
+
 //   if (event.target.textContent === correct  ) {
 //     console.log(event.target.textContent);
-    
+
 //   }
 // });
-
-
 
 // 3 steps for making an element on HTML by JS
 //make the element  .createElementbyid  example var name = document.createElement("tag");
