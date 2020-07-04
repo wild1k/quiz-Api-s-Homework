@@ -111,7 +111,18 @@ function check() {
   
   var correctAnswer = quizQuestions[quizCounter].correct
   console.log(`Correct answer of CURRENT question: ${correctAnswer}`)
-
+  function keepScore(){
+    if (userAnswer === correctAnswer){
+     score++
+    score.textContent = "Current score: " + currScore 
+    rightAnswer.textContent = "That is Correct!"
+    } else {
+      timer--
+      rightAnswer.textContent = "Incorrect"
+    }
+  
+  }
+  
   /*makes counter go to next question*/
   if (quizCounter === 3) {
       hideHeader()
@@ -119,7 +130,7 @@ function check() {
       alert("you are done!")
   } else {
   quizCounter++
-  score.textContent = "Current score: " + currScore
+  keepScore()
   questionDisplay.textContent = quizQuestions[quizCounter].q
   console.log(`currentQuestion: ${quizCounter}`)
   console.log(questionDisplay);
