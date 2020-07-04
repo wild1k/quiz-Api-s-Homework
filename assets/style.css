@@ -1,3 +1,7 @@
 #hideQuiz {
     display: none;
 }
+
+#highScore {
+    display: block;
+}

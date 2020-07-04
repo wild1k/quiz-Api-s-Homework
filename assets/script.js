@@ -51,9 +51,16 @@ var timerCount = 10
 
 //var declared to make quiz hidden until start button
 var hide = document.getElementById("hideQuiz")
+// shows the highScores at end of game
+var highScore = document.getElementById("highScore")
 
 function displayQuestions() {
   document.getElementById("questionDisplay").innerHTML = quizQuestions[0].q
+}
+function startScore() {
+  
+  score.textContent = "Current score: " + currScore + ""
+  console.log(currScore);
 }
 
 function displayButtons() {
@@ -67,11 +74,12 @@ function displayButtons() {
 // needs to make it stop!
 function startTimer() {
   timer.textContent = "Time Left: " + timerCount + " seconds remaining."
-  
   setInterval(function () {
       timer.textContent = "Time Left: " + timerCount + " seconds remaining."
       if (timerCount !== 0) {
           timerCount--;
+      } else {
+        timerCount = 0
       }
   }, 1000)
 }
@@ -80,77 +88,52 @@ function hideHeader() {
   head.style.display = "none"
 }
 
-function hideQuizCard() {
+function showQuizCard() {
   hide.style.display = "block"
 }
 
+function showScore(){
+  highScore.style.display = "none"
+  hide.style.display= "none"
+}
+showScore()
 //entry point
 // $(document).ready(function () {
 //     console.log("START!")
+function check() {
+  var userAnswer = $(this).text()
+  console.log(`User answer to first question: ${userAnswer}`)
+  var correctAnswer = quizQuestions[quizCounter].correct
+  console.log(`Correct answer of CURRENT question: ${correctAnswer}`)
+    quizCounter++
+      questionDisplay.textContent = quizQuestions[quizCounter].q
+ displayButtons()
+      if (userAnswer === correctAnswer && quizCounter !== 3 && timerCount !== 0){
+      startScore()
+      timerCount++
+      rightAnswer.textContent = "That is Correct!"
+    } else if (userAnswer !== correctAnswer && quizCounter !== 3 && timerCount !== 0) {
+      timerCount--
+      rightAnswer.textContent = "Incorrect"
+    } else {
+      alert("finished! with " + timerCount + " seconds remaining")
+      prompt("please enter your initials here for your high Score: ")
+      showScore()
+  }
+ }
 
-// })
 //startbutton click to hide header to start quiz
 startBtn.addEventListener("click", function () {
   //calling the function
 
   hideHeader()
+  startScore()
   startTimer()
-  hideQuizCard()
+  showQuizCard()
   displayQuestions()
   displayButtons()
 })
 
-
-
-
-function check() {
-  
-  
-  var userAnswer = $(this).text()
-  console.log(`User answer to first question: ${userAnswer}`)
-  
-  var correctAnswer = quizQuestions[quizCounter].correct
-  console.log(`Correct answer of CURRENT question: ${correctAnswer}`)
-  function keepScore(){
-    if (userAnswer === correctAnswer){
-     score++
-    score.textContent = "Current score: " + currScore 
-    rightAnswer.textContent = "That is Correct!"
-    } else {
-      timer--
-      rightAnswer.textContent = "Incorrect"
-    }
-  
-  }
-  
-  /*makes counter go to next question*/
-  if (quizCounter === 3) {
-      hideHeader()
-      hideQuizCard()
-      alert("you are done!")
-  } else {
-  quizCounter++
-  keepScore()
-  questionDisplay.textContent = quizQuestions[quizCounter].q
-  console.log(`currentQuestion: ${quizCounter}`)
-  console.log(questionDisplay);
-  console.log(btnDiv);
-  
-  displayButtons()
-  }
-    
-  
-}
-
-  /*here is where you want to display next question*/
-  // displayQuestions() //? maybe?
-
-  /*
-  The question choices are not changing, that's the only thing left
-  Use the questionChoices array in the questions objects
-  */
-
-
 //events
 $(".answers").on("click", check)
-console.log("are you wroking?"); 
+console.log("working!");
