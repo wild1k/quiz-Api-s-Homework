@@ -40,14 +40,14 @@ var answers = document.querySelector(".answers")
 var score = document.getElementById("score")
 var currScore = 0
 var quizCounter = 0
-
+console.log(quizCounter);
 //shortens code to keep functions and forloops clean when cycling through Q and A
 
 var checkAnswer = document.getElementsByClassName("checkAnswer")
 
 //creates my timer
 var timer = document.getElementById("timer")
-var timerCount = 10
+var timerCount = 75
 
 //var declared to make quiz hidden until start button
 var hide = document.getElementById("hideQuiz")
@@ -55,12 +55,12 @@ var hide = document.getElementById("hideQuiz")
 var highScore = document.getElementById("highScore")
 
 function displayQuestions() {
-  document.getElementById("questionDisplay").innerHTML = quizQuestions[0].q
+  document.getElementById("questionDisplay").innerHTML = quizQuestions[quizCounter].q
 }
 function startScore() {
   
   score.textContent = "Current score: " + currScore + ""
-  console.log(currScore);
+  // console.log(currScore);
 }
 
 function displayButtons() {
@@ -76,16 +76,25 @@ function startTimer() {
   timer.textContent = "Time Left: " + timerCount + " seconds remaining."
   setInterval(function () {
       timer.textContent = "Time Left: " + timerCount + " seconds remaining."
-      if (timerCount !== 0) {
-          timerCount--;
-      } else {
-        timerCount = 0
+      if (timerCount >= 0) {
+        timer.textContent = "Time Left: " + timerCount + " seconds remaining."
+      
       }
-  }, 1000)
+      if (timerCount <= 0){
+        timer.textContent = "Your time is up!"
+      }
+       else {
+        timerCount--;
+     }
+  }, 700)
 }
 
 function hideHeader() {
   head.style.display = "none"
+}
+
+function showHeader(){
+  head.style.display = "block"
 }
 
 function showQuizCard() {
@@ -105,22 +114,62 @@ function check() {
   console.log(`User answer to first question: ${userAnswer}`)
   var correctAnswer = quizQuestions[quizCounter].correct
   console.log(`Correct answer of CURRENT question: ${correctAnswer}`)
-    quizCounter++
-      questionDisplay.textContent = quizQuestions[quizCounter].q
- displayButtons()
-      if (userAnswer === correctAnswer && quizCounter !== 3 && timerCount !== 0){
-      startScore()
-      timerCount++
-      rightAnswer.textContent = "That is Correct!"
-    } else if (userAnswer !== correctAnswer && quizCounter !== 3 && timerCount !== 0) {
-      timerCount--
-      rightAnswer.textContent = "Incorrect"
-    } else {
-      alert("finished! with " + timerCount + " seconds remaining")
-      prompt("please enter your initials here for your high Score: ")
-      showScore()
-  }
- }
+   
+
+   var question = quizQuestions[quizCounter]
+  var questionTitle = question.q
+ questionDisplay.textContent = questionTitle;
+
+   if (quizCounter === 3) {
+
+       endQuiz();
+     
+     }
+
+
+ if(userAnswer !== correctAnswer ) {
+ 
+  rightAnswer.textContent = "Incorrect"
+  timerCount--
+  quizCounter++
+  displayQuestions()
+  displayButtons()
+ 
+} 
+
+ 
+if (userAnswer === correctAnswer ){
+       currScore++;
+     rightAnswer.textContent = "That is Correct!"
+       startScore();
+      
+       quizCounter++;
+        displayQuestions()
+       displayButtons();
+       
+    }
+ 
+     
+
+}
+
+
+
+    console.log(quizCounter);
+
+
+
+function endQuiz(){
+ 
+ showScore()
+  
+ alert("finished! with " + currScore + " points " + " and " + timerCount + " seconds remaining")
+    prompt("Please enter your name here for your high Score: ")
+   
+  showHeader();
+
+};
+
 
 //startbutton click to hide header to start quiz
 startBtn.addEventListener("click", function () {
